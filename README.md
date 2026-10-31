@@ -6,12 +6,20 @@ Unity向けのローカル2～4人用すごろくプロトタイプです。空�
 
 ## 起動
 
-1. Unity Hubから **Unity 6.3 LTS / 6000.3.0f1** でこのフォルダーを開きます。新規プロジェクト用の指定バージョンです。この環境にEditorが導入済みという意味ではありません。
+1. Unity Hubから **Unity 6.3 LTS / 6000.3.5f2** でこのフォルダーを開きます。新規プロジェクト用の指定バージョンです。この環境にEditorが導入済みという意味ではありません。
 2. UPMの依存解決とC#コンパイルを待ちます。URPは17.3.0です。Editor処理が初回に `Assets/HoloDebut/Generated` 以下へURPのRenderer・Pipeline・仮Materialを用意します。必要なら `HoloDebut > Prepare URP and build scene` を実行します。
 3. 保存済みの `Assets/HoloDebut/Scenes/Prototype.unity` を開き、Playします。このシーンはGameRootと設定参照を保存したブートストラップです。盤面・カメラ・Canvas・EventSystem・駒・皿はPlay時に構築します。
 4. 初期はP1 Pekora、P2 Marine、P3 Flare、P4 Noelです。`Data/Session.asset` のplayers配列を2～4件に変更できます。同じキャラクターを複数指定してもplayerIdは独立します。
 
 初回のUnityインポートは `packages.unity.com` 等への通常のUPMアクセスが必要です。WindowsビルドにはHubのWindows Build Supportが必要です。メジャーバージョンやパッケージを一括更新する必要はありません。
+
+## パッケージの署名がInvalidになる場合
+
+Unity公式のPackage Managerトラブルシューティングによると、**6000.3.5f2より前の6.3では正常な署名もInvalidと判定される既知不具合**があります。このプロジェクトの指定を6000.3.5f2へ変更しました。
+
+Unity Hubで6000.3.5f2以降の6.3 LTSをインストールし、プロジェクトの「⋮」→「Unityバージョンを選択」でそのEditorを指定してください。Editorを追加しただけでは、古い6000.3.0f1で開く場合があります。起動後のタイトルバーでもバージョンを確認します。署名検証は無効にしません。
+
+ZIPで取得した既存プロジェクトは編集済みファイルをバックアップしたうえで、`ProjectSettings/ProjectVersion.txt` の指定を更新してください。Git利用時は最新mainを取り込めます。PCへのEditorのインストール・切替はGitの更新だけでは実行されません。
 
 ## 操作
 

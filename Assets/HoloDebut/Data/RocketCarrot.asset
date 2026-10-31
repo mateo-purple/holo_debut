@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RocketCarrot
   m_EditorClassIdentifier: 
   itemId: rocket_carrot
-  displayName: Rocket Carrot
-  description: Next movement +5. In endurance also grants one additional throw.
+  displayName: ロケットニンジン
+  description: 次の移動量＋5マス。耐久配信では追加投球も1回獲得。
   icon: {fileID: 0}
   moveBonus: 5

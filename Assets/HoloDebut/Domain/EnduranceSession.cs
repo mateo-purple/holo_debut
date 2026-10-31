@@ -24,6 +24,7 @@ namespace HoloDebut.Domain
         public int ExperienceEarned {get;private set;}
         public long SubscriberBonus {get;private set;}
         public long NextSuccessBonus=>rules.SuccessBonus(UsedRolls+1);
+        public long CurrentOrNextSuccessBonus=>Finished?SubscriberBonus:rules.SuccessBonus(Phase==EndurancePhase.Moving?UsedRolls:UsedRolls+1);
         public EndurancePhase Phase {get;private set;}=EndurancePhase.AwaitRoll;
         public bool Finished=>Phase==EndurancePhase.Succeeded||Phase==EndurancePhase.Failed||Phase==EndurancePhase.Cancelled;
         public bool Succeeded=>Phase==EndurancePhase.Succeeded;

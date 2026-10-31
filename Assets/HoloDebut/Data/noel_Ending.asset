@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: noel_Ending
   m_EditorClassIdentifier: 
   endingId: noel
-  title: Desert island project
-  text: A fictional project with all participating friends. Thanks for playing!
+  title: 無人島企画
+  text: 優勝者の企画が実現！ 参加した仲間たちと一緒に楽しみましょう。これはゲーム内の架空の企画です。
   image: {fileID: 0}
   presentationPrefab: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: pekora_Ending
   m_EditorClassIdentifier: 
   endingId: pekora
-  title: Game tournament
-  text: A fictional project with all participating friends. Thanks for playing!
+  title: ゲーム大会
+  text: 優勝者の企画が実現！ 参加した仲間たちと一緒に楽しみましょう。これはゲーム内の架空の企画です。
   image: {fileID: 0}
   presentationPrefab: {fileID: 0}

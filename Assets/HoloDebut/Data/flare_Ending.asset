@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: flare_Ending
   m_EditorClassIdentifier: 
   endingId: flare
-  title: Generation 3 festival (temporary)
-  text: A fictional project with all participating friends. Thanks for playing!
+  title: 3期生フェス（仮）
+  text: 優勝者の企画が実現！ 参加した仲間たちと一緒に楽しみましょう。これはゲーム内の架空の企画です。
   image: {fileID: 0}
   presentationPrefab: {fileID: 0}

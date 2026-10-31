@@ -28,6 +28,18 @@ namespace HoloDebut.Tests
             Assert.That(game.Model.SessionId,Is.Not.EqualTo(old));Assert.That(game.FatalError,Is.Null);
             Assert.That(game.Dice.Dice.Count,Is.EqualTo(3));Assert.That(UnityEngine.Object.FindObjectsByType<TileVisual>(FindObjectsSortMode.None).Length,Is.EqualTo(121));
         }
+        [UnityTest] public IEnumerator JapaneseFontAndSceneLabelsUseBundledJapaneseGlyphs()
+        {
+            var font=JapaneseFont.Load();
+            foreach(char c in "ホロデビュー兎田ぺこら宝鐘マリン不知火フレア白銀ノエル投球配信脱出資金登録者")
+                Assert.That(font.HasCharacter(c),Is.True,"Missing Japanese glyph: "+c);
+            Assert.That(game.Model.Players[0].DisplayName,Does.Contain("兎田ぺこら"));
+            var labels=UnityEngine.Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None);
+            Assert.That(System.Array.Exists(labels,t=>t.text=="ホロデビュー"),Is.True);
+            Assert.That(System.Array.Exists(labels,t=>t.text.Contains("サイコロを振る")),Is.True);
+            foreach(var t in labels)Assert.That(t.font,Is.SameAs(font));
+            yield return null;
+        }
         [UnityTest] public IEnumerator RollSpamIsRejectedAndCancelRejectsOldPhysics()
         {
             string old=game.Model.SessionId;game.RequestRoll();var ticket=game.Model.ActiveRoll;

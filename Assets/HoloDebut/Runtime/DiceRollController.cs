@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HoloDebut.Domain;
+using HoloDebut.Presentation;
 namespace HoloDebut.Runtime
 {
     public sealed class RollObservation
@@ -30,7 +31,7 @@ namespace HoloDebut.Runtime
         {
             config=session.dice;bowl=surface;
             launchRandom=new System.Random(LaunchSeed);
-            if(config.spawnPoints==null || config.spawnPoints.Length<3 || config.maxInvalidAttempts<1)throw new InvalidOperationException("Invalid DicePhysicsConfig spawns/attempts");
+            if(config.spawnPoints==null || config.spawnPoints.Length<3 || config.maxInvalidAttempts<1)throw new InvalidOperationException("サイコロの開始位置・無効投球の上限設定が不正です");
             for(int i=0;i<3;i++){var o=Instantiate(session.dicePrefab,transform);o.name="Die"+(i+1);var body=o.GetComponent<DiceBody>();body.Initialize(config,bowl);dice.Add(body);o.SetActive(false);}
         }
         public IEnumerator Roll(RollTicket ticket,Func<bool> active,Action<int[]> completed)
@@ -53,7 +54,7 @@ namespace HoloDebut.Runtime
                         if(Vector3.Distance(positions[i],bowl.transform.position)<0.12f)reason="Spawn intersects bowl";
                         dice[i].Prepare(positions[i],UniformRotation());
                     }
-                    Status="Physical throw: "+ticket.DiceCount+" die/dice, attempt "+attempt;
+                    Status="サイコロ "+ticket.DiceCount+"個を投球中（試行 "+attempt+"回目）";
                     yield return new WaitForFixedUpdate();
                     if(run!=generation || !active())yield break;
                     if(reason==null)
@@ -95,10 +96,10 @@ namespace HoloDebut.Runtime
                     foreach(var d in dice)d.Freeze();
                     if(reason==null && faces==null)reason="Timeout (unsupported/stacked/unsettled die)";
                     var observation=new RollObservation {Ticket=ticket,AttemptIndex=attempt,Valid=reason==null,Reason=reason,Seconds=elapsed,Faces=faces==null?null:(int[])faces.Clone()};history.Add(observation);
-                    if(reason==null){Status="Faces: "+string.Join(", ",faces);completed((int[])faces.Clone());yield break;}
-                    Status="Invalid: "+reason;
+                    if(reason==null){Status="出目："+string.Join("・",faces);completed((int[])faces.Clone());yield break;}
+                    Status="無効投球："+JapaneseText.InvalidRollReason(reason);
                     yield return new WaitForSeconds(config.invalidMessageSeconds);
-                    if(++invalid>=config.maxInvalidAttempts){ErrorPaused=true;Status+=" | ErrorPaused: Retry same roll";invalid=0;}
+                    if(++invalid>=config.maxInvalidAttempts){ErrorPaused=true;Status+="\n一時停止中。「同じ投球を再試行」を押してください。";invalid=0;}
                 }
             }
             finally{if(run==generation){busy=false;foreach(var d in dice)d.Freeze();}}

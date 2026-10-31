@@ -22,6 +22,8 @@ namespace HoloDebut.Runtime
         {
             var o = new GameObject("Label"); o.transform.SetParent(parent, false); o.transform.localPosition = pos;
             var t = o.AddComponent<TextMesh>(); t.text = text; t.anchor = TextAnchor.MiddleCenter;
+            t.font = JapaneseFont.Load();
+            o.GetComponent<MeshRenderer>().sharedMaterial = t.font.material;
             t.fontSize = 64; t.characterSize = size; t.color = color; return t;
         }
     }

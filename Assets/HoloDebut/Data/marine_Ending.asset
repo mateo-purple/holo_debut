@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: marine_Ending
   m_EditorClassIdentifier: 
   endingId: marine
-  title: Group trip
-  text: A fictional project with all participating friends. Thanks for playing!
+  title: みんなで旅行
+  text: 優勝者の企画が実現！ 参加した仲間たちと一緒に楽しみましょう。これはゲーム内の架空の企画です。
   image: {fileID: 0}
   presentationPrefab: {fileID: 0}

@@ -27,6 +27,18 @@ namespace HoloDebut.Tests
         public void SkillBoundaries(int skill,int expected)=>Assert.That(new EnduranceRules().LoopSize(skill),Is.EqualTo(expected));
         [Test] public void StartingAtExitIsNotSuccessAndSixEscapesSixNodeLoop()
         {var e=Create();Assert.That(e.Finished,Is.False);Assert.That(player.Subscribers,Is.Zero);Roll(e,6);Assert.That(e.Succeeded,Is.True);Assert.That(player.Subscribers,Is.EqualTo(50000));}
+        [Test] public void EscapeRewardPreviewUsesCurrentRollWhileMovingAndActualBonusAfterSuccess()
+        {
+            var e=Create();Assert.That(e.CurrentOrNextSuccessBonus,Is.EqualTo(50000));
+            Roll(e,3);Assert.That(e.CurrentOrNextSuccessBonus,Is.EqualTo(35000));
+            e.TryBeginRoll(out var t);e.TryAcceptResult(t,3);
+            Assert.That(e.CurrentOrNextSuccessBonus,Is.EqualTo(35000));
+            Assert.That(e.NextSuccessBonus,Is.EqualTo(25000));
+            while(e.RemainingSteps>0)e.TryCompleteStep(t,e.StepIndex+1);
+            e.TryResolveLanding(t);Assert.That(e.CurrentOrNextSuccessBonus,Is.EqualTo(player.Subscribers));
+        }
+        [Test] public void FailedChallengeRewardPreviewIsZero()
+        {var e=Create(stamina:0);Roll(e,1);Assert.That(e.CurrentOrNextSuccessBonus,Is.Zero);}
         [Test] public void ThreePlusThreeEscapesWithSecondThrowBonusAndOnlyLandingXP()
         {
             var e=Create();Roll(e,3);Assert.That(e.Position,Is.EqualTo(3));Assert.That(player.GameSkill,Is.EqualTo(55));Assert.That(player.Funds,Is.EqualTo(50000));

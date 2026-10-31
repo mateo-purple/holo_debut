@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccea4925903e5a4d8248224e7d699785, type: 3}
+  m_Name: StreamPlan
+  m_EditorClassIdentifier: 
+  baseSubscribers: 5000
+  baseFunds: 5000
+  poorPercent: 15
+  normalPercent: 60
+  goodPercent: 20
+  viralPercent: 5
+  commonGrowthPermille: 1200

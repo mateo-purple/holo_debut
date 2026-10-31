@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd38e71e974054d3aaa6ffafb2b31a80, type: 3}
+  m_Name: Endurance
+  m_EditorClassIdentifier: 
+  maximumSkills: 09000000130000001d000000270000003b000000450000004f0000005e00000064000000
+  loopSizes: 0c0000000b0000000a000000080000000600000005000000040000000300000002000000
+  skillExperience: 5
+  fundsReward: 10000
+  successBonuses:
+  - 50000
+  - 35000
+  - 25000
+  - 15000
+  - 10000
+  radius: 2.5

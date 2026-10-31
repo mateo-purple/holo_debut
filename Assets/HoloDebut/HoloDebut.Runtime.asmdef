@@ -1,0 +1,1 @@
+{"name":"HoloDebut.Runtime","rootNamespace":"HoloDebut.Runtime","references":["HoloDebut.Domain","Unity.ugui","Unity.RenderPipelines.Universal.Runtime","Unity.RenderPipelines.Core.Runtime"]}

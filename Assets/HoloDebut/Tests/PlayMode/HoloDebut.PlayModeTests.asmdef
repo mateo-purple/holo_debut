@@ -1,0 +1,14 @@
+{
+  "name": "HoloDebut.PlayModeTests",
+  "references": [
+    "HoloDebut.Runtime",
+    "HoloDebut.Domain"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ]
+}

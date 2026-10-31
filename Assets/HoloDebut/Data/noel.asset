@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f694f11c89ba5f4b8e2318474988ccb9, type: 3}
+  m_Name: noel
+  m_EditorClassIdentifier: 
+  characterId: noel
+  japaneseName: "白銀ノエル"
+  englishName: Noel
+  favoriteGenre: ASMR
+  color: {r: 0.7, g: 0.75, b: 0.85, a: 1}
+  portrait: {fileID: 0}
+  pawnPrefab: {fileID: 0}
+  game: 35
+  chat: 55
+  song: 20
+  asmr: 80
+  stamina: 50
+  ending: {fileID: 11400000, guid: 0cfc6587984d579e98db835a7629df04, type: 2}
+  gameGrowthPermille: 1600

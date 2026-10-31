@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ecd801bdbd53e080ec31330b111cac, type: 3}
+  m_Name: DicePhysics
+  m_EditorClassIdentifier: 
+  size: 0.035
+  mass: 0.02
+  linearDamping: 0.05
+  angularDamping: 0.1
+  maxAngularVelocity: 35
+  solverIterations: 12
+  solverVelocityIterations: 4
+  contactOffset: 0.001
+  linearStop: 0.01
+  angularStop: 0.1
+  stopSeconds: 0.5
+  timeoutSeconds: 12
+  minUpDot: 0.94
+  minDotGap: 0.35
+  flightRadius: 0.5
+  flightMinY: -0.2
+  interiorRadius: 0.19
+  invalidMessageSeconds: 0.5
+  maxInvalidAttempts: 5
+  diceStaticFriction: 0.5
+  diceDynamicFriction: 0.4
+  diceBounce: 0.25
+  bowlStaticFriction: 0.6
+  bowlDynamicFriction: 0.45
+  bowlBounce: 0.15
+  horizontalSpeed: {x: 0.15, y: 0.35}
+  downwardSpeed: {x: 0.2, y: 0.5}
+  spinSpeed: {x: 10, y: 25}
+  lateralJitter: 0.08
+  spawnJitter: 0.005
+  spawnPoints:
+  - {x: -0.055, y: 0.26, z: -0.032}
+  - {x: 0.055, y: 0.26, z: -0.032}
+  - {x: 0, y: 0.26, z: 0.064}
